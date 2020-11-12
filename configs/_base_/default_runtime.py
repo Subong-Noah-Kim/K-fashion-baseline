@@ -170,7 +170,7 @@ test_pipeline = [
 ]
 data = dict(
 #    samples_per_gpu=8,
-    samples_per_gpu=12,
+    samples_per_gpu=6,
     workers_per_gpu=2,
     train=dict(
         type=dataset_type,
