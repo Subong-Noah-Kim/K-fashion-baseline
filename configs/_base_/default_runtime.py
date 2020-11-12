@@ -134,11 +134,13 @@ lr_config = dict(
     warmup_iters=500,
     warmup_ratio=0.001,
     step=[8, 11])
-total_epochs = 12
+# total_epochs = 12
+total_epochs = 6
 
 
 dataset_type = 'CocoDataset'
-data_root = '/home/ubuntu/Dacon/jin/Opinion/mmdetection/datasets/'
+# data_root = '/home/ubuntu/Dacon/jin/Opinion/mmdetection/datasets/'
+data_root = '/content/drive/My Drive/k-fashion/'
 img_norm_cfg = dict(
     mean=[123.675, 116.28, 103.53], std=[58.395, 57.12, 57.375], to_rgb=True)
 train_pipeline = [
@@ -167,7 +169,8 @@ test_pipeline = [
         ])
 ]
 data = dict(
-    samples_per_gpu=8,
+#    samples_per_gpu=8,
+    samples_per_gpu=12,
     workers_per_gpu=2,
     train=dict(
         type=dataset_type,
@@ -176,7 +179,8 @@ data = dict(
         pipeline=train_pipeline),
     val=dict(
         type=dataset_type,
-        ann_file=data_root + 'test_private.json',
+#        ann_file=data_root + 'test_private.json',
+        ann_file=data_root + 'test_public.json',
         img_prefix=data_root + 'test_all',
         pipeline=test_pipeline),
     test=dict(
